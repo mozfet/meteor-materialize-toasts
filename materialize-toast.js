@@ -1,9 +1,8 @@
 // imports
 import { Random } from 'meteor/random'
-import Locale from '/imports/api/locale'
 
-
-let toasts = {}
+// module constants
+const toasts = {}
 
 /**
  * Show toasts and track by category

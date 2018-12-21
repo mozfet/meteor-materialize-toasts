@@ -1,7 +1,5 @@
 // imports
 import { Random } from 'meteor/random'
-import Locale from '/imports/api/locale'
-
 
 let toasts = {}
 
@@ -9,17 +7,14 @@ let toasts = {}
  * Show toasts and track by category
  * @see https://materializecss.com/toasts.html
  * @param {Array} categoryTags - Categories matching this toast
- * @param {String} messageTag - Translation tag for this toast
+ * @param {String} html - HTML or text to render inside the toast
  * @param {Object} messageData - Translation data for the translation
  * @param {Object} options - Materialize options for the toast
  * @returns {Number} The id of the toast
  * @alias showToast
  * @alias materialize-toast:show
  **/
-export const showToast = (categoryTags, messageTag, messageData, options) => {
-
-  // translate the message
-  const html = Locale.translate(messageTag, messageData)
+export const showToast = (categoryTags, html, messageData, options) => {
 
   // normalise display length
   const displayLength = options&&options.displayLength?options.displayLength:5000
@@ -44,7 +39,7 @@ export const showToast = (categoryTags, messageTag, messageData, options) => {
 
   // track the toast
   const id = Random.id()
-  toasts[id] = {categoryTags, html, messageTag, messageData, options}
+  toasts[id] = {categoryTags, html, messageData, options}
 
   // return undefined
   return id
