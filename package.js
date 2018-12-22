@@ -1,6 +1,6 @@
 Package.describe({
   name: 'mozfet:materialize-toast',
-  version: '0.0.3',
+  version: '0.0.4',
   summary: 'Tagged MaterializeCSS toasts makes for organised closing.',
   git: 'https://github.com/mozfet/meteor-materialize-toasts.git',
   documentation: 'README.md'

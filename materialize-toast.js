@@ -15,10 +15,7 @@ const toasts = {}
  * @alias showToast
  * @alias materialize-toast:show
  **/
-export const showToast = (categoryTags, messageTag, messageData, options) => {
-
-  // translate the message
-  const html = Locale.translate(messageTag, messageData)
+export const showToast = (categoryTags, html, options) => {
 
   // normalise display length
   const displayLength = options&&options.displayLength?options.displayLength:5000
@@ -43,7 +40,7 @@ export const showToast = (categoryTags, messageTag, messageData, options) => {
 
   // track the toast
   const id = Random.id()
-  toasts[id] = {categoryTags, html, messageTag, messageData, options}
+  toasts[id] = {categoryTags, html, options}
 
   // return undefined
   return id
